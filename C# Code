@@ -1,8 +1,18 @@
 using System;
 
-    
     class AreaCalculator
     {
+        
+        static void Quit()
+        {
+            System.Environment.Exit(0);
+        }
+        
+        static void Help()
+        {
+            Console.WriteLine("1 - Circle Area\n2 - Triangle Area -- 2.1 - Triangle Perimeter\n3 - Trapezoid Area\n");
+            Main();
+        }
         
         static void Start()
         {
@@ -14,13 +24,13 @@ using System;
             string circle = "1";
             string triangle = "2";
             string Other = "3";
-            string cirPer = "1.1";
+            //string cirPer = "1.1"; <---not used!
             string triPer = "2.1";
-            string TrapPer = "3.1";
+            //string TrapPer = "3.1"; <---not used!
             string userInput;
         
             
-            Console.WriteLine("Input Function (Circle[1], Triangle[2], Trapezoid[3]) If you want to find perimeter, do 0.1");
+            Console.WriteLine("Input Function (Type help for all commands)");
             userInput = Console.ReadLine();
             if (userInput == circle || userInput == "Circle" || userInput == "circle"){
                 Circle_Circumference();
@@ -31,6 +41,12 @@ using System;
                 Start();
             } else if (userInput == Other || userInput == "Trapezoid" || userInput == "trapezoid"){
                 TrapezoidArea();    
+            } else if (userInput == triPer || userInput == "TrianglePerimeter" || userInput == "Triangle Perimeter"){
+                trianglePerimeter();
+            } else if (userInput == "help" || userInput == "Help"){
+                Help();
+            } else if (userInput == "quit" || userInput == "Quit") {
+                System.Environment.Exit(0);
             } else {
                 Start();
             }
@@ -94,7 +110,7 @@ using System;
             TrapArea = (half * topBot * height);
             Console.WriteLine("The area of the trapezoid is " + TrapArea);
             
-            Start();
+            Continue();
         }
         
         static void Continue(){
@@ -112,7 +128,25 @@ using System;
             }
         }
         
-        // static void triPer
+        static void trianglePerimeter()
+        {
+            float perA;
+            float perB;
+            float perC;
+            float trianglePer;
+        
+            Console.WriteLine("Enter the 1st leg");
+            perA = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the 2nd leg");
+            perB = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the 3rd leg");
+            perC = Convert.ToInt32(Console.ReadLine());
+            trianglePer = (perA + perB + perC);
+            Console.WriteLine("The perimeter of the triangle is " + trianglePer);
+        
+            Continue();
+        }
     }
-
-
+    
+    
+    
