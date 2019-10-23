@@ -1,0 +1,118 @@
+using System;
+
+    
+    class AreaCalculator
+    {
+        
+        static void Start()
+        {
+            Main();
+        }
+        
+        static void Main()
+        {
+            string circle = "1";
+            string triangle = "2";
+            string Other = "3";
+            string cirPer = "1.1";
+            string triPer = "2.1";
+            string TrapPer = "3.1";
+            string userInput;
+        
+            
+            Console.WriteLine("Input Function (Circle[1], Triangle[2], Trapezoid[3]) If you want to find perimeter, do 0.1");
+            userInput = Console.ReadLine();
+            if (userInput == circle || userInput == "Circle" || userInput == "circle"){
+                Circle_Circumference();
+            } else if (userInput == triangle || userInput == "Triangle"){
+                triArea();
+            } else if (userInput == ""){
+                Console.WriteLine("Error");  
+                Start();
+            } else if (userInput == Other || userInput == "Trapezoid" || userInput == "trapezoid"){
+                TrapezoidArea();    
+            } else {
+                Start();
+            }
+        }
+        
+        
+        static void triArea() 
+        {
+            
+        float Base;
+        float height;
+        
+        Console.WriteLine("Enter the base of the triangle");
+        Base = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter the height of the triangle");
+        height = Convert.ToInt32(Console.ReadLine());
+        
+        double triangleArea = (0.5 * Base * height);
+        
+        Console.WriteLine("The area of the triangle is " + triangleArea);
+        
+        Continue();
+            
+        }
+        
+        static void Circle_Circumference()
+        {
+            
+            decimal pi = 3.14m;
+            decimal radius;
+            decimal Circumference;
+            decimal result;
+            
+            Console.WriteLine("Enter the radius");
+            radius = Convert.ToInt32(Console.ReadLine());
+            result = (radius * radius);
+            Circumference = (pi * result);
+            Console.WriteLine("The Circumference of the circle is " + Circumference);
+            Continue();
+        }
+        
+        
+        
+         static void TrapezoidArea()
+        {
+            Decimal topLength;
+            Decimal bottomLength;
+            Decimal height;
+            Decimal TrapArea;
+            Decimal topBot;
+            
+            Decimal half = 0.5m;
+            
+            Console.WriteLine("Enter the bottom length");
+            bottomLength = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the top length");
+            topLength = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the height");
+            height = Convert.ToInt32(Console.ReadLine());
+            topBot = topLength + bottomLength;
+            TrapArea = (half * topBot * height);
+            Console.WriteLine("The area of the trapezoid is " + TrapArea);
+            
+            Start();
+        }
+        
+        static void Continue(){
+            
+            string contInput;
+            
+            Console.WriteLine("Do you want to continue");
+            contInput = Console.ReadLine();
+            if (contInput == "yes" || contInput == "Yes" || contInput == "y"){
+                Start();
+            } else if (contInput == "no" || contInput == "No"){
+                System.Environment.Exit(0);
+            } else {
+                Continue();
+            }
+        }
+        
+        // static void triPer
+    }
+
+
